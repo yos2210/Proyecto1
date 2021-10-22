@@ -17,7 +17,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         {
         }
 
-        public virtual DbSet<Shipper> Shippers { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,15 +32,26 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<Shipper>(entity =>
+            modelBuilder.Entity<OrderDetail>(entity =>
             {
-                entity.Property(e => e.ShipperId).HasColumnName("ShipperID");
+                entity.HasKey(e => new { e.OrderId, e.ProductId })
+                    .HasName("PK_Order_Details");
 
-                entity.Property(e => e.CompanyName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.HasIndex(e => e.OrderId, "OrderID");
 
-                entity.Property(e => e.Phone).HasMaxLength(24);
+                entity.HasIndex(e => e.OrderId, "OrdersOrder_Details");
+
+                entity.HasIndex(e => e.ProductId, "ProductID");
+
+                entity.HasIndex(e => e.ProductId, "ProductsOrder_Details");
+
+                entity.Property(e => e.OrderId).HasColumnName("OrderID");
+
+                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.Property(e => e.Quantity).HasDefaultValueSql("(1)");
+
+                entity.Property(e => e.UnitPrice).HasColumnType("money");
             });
 
             OnModelCreatingPartial(modelBuilder);
