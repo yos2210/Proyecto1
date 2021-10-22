@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto.Topicos.ConsoleApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto.Topicos.NorthWnd.Model", "..\Proyecto.Topicos.NorthWnd.Model\Proyecto.Topicos.NorthWnd.Model.csproj", "{4E79B3E4-29D3-4470-A62C-A8ADBDE31568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto.Topicos.NorthWnd.BL", "..\Proyecto.NorthWnd.Model\Proyecto.Topicos.NorthWnd.BL.csproj", "{04167DAD-5FFC-455F-AB34-F27DD0B79364}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto.Topicos.NorthWnd.BL", "..\Proyecto.Topicos.NorthWnd.BL\Proyecto.Topicos.NorthWnd.BL.csproj", "{170C07F8-FE5E-4691-8CA7-ED22253D844F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{4E79B3E4-29D3-4470-A62C-A8ADBDE31568}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E79B3E4-29D3-4470-A62C-A8ADBDE31568}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E79B3E4-29D3-4470-A62C-A8ADBDE31568}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04167DAD-5FFC-455F-AB34-F27DD0B79364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04167DAD-5FFC-455F-AB34-F27DD0B79364}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04167DAD-5FFC-455F-AB34-F27DD0B79364}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04167DAD-5FFC-455F-AB34-F27DD0B79364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{170C07F8-FE5E-4691-8CA7-ED22253D844F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170C07F8-FE5E-4691-8CA7-ED22253D844F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170C07F8-FE5E-4691-8CA7-ED22253D844F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170C07F8-FE5E-4691-8CA7-ED22253D844F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
