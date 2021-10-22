@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace Proyecto.Topicos.NorthWnd.Model.Models
+{
+    public partial class EmployeeTerritory
+    {
+        public int EmployeeId { get; set; }
+        public string TerritoryId { get; set; }
+
+        public virtual Employee Employee { get; set; }
+    }
+}
