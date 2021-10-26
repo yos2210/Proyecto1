@@ -22,28 +22,28 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
             set { }
         }
 
-        public string CategoryrName
-        {
-            get
-            {
-                var getCategory = this.Category.CategoryName;
+        //public string CategoryrName
+        //{
+        //    get
+        //    {
+        //        var getCategory = this.Category.CategoryName;
 
-                var resultado = $"{getCategory}";
-                return resultado;
-            }
-            set { }
-        }
+        //        var resultado = $"{getCategory}";
+        //        return resultado;
+        //    }
+        //    set { }
+        //}
 
-        public string ProductStock
-        {
-            get
-            {
-                var unitsInStock = this.UnitsInStock + " ";
+        //public string ProductStock
+        //{
+        //    get
+        //    {
+        //        var unitsInStock = this.UnitsInStock;
 
-                var resultado = $"{unitsInStock}";
-                return resultado;
-            }
-            set { }
-        }
+        //        var resultado = $"{unitsInStock}";
+        //        return resultado;
+        //    }
+        //    set { }
+        //}
     }
 }
