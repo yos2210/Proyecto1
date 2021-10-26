@@ -15,7 +15,8 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             IList<Model.Models.Product> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
             {
-                resultado = _contexto.Products.OrderByDescending(c => c.UnitPrice).ToList().Where(c => c.Discontinued.Equals(true)).ToList();
+                //resultado = _contexto.Products.OrderByDescending(c => c.UnitPrice).ToList().Where(c => c.Discontinued.Equals(true)).ToList();
+                resultado = _contexto.Products.Where(c => c.Discontinued.Equals(false)).OrderByDescending(c => c.UnitPrice).ToList();
             }
             return resultado;
         }

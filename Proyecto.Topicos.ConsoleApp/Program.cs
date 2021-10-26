@@ -6,7 +6,13 @@ namespace Proyecto.Topicos.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            HagaLaMagia();
+        }
+
+        private static void HagaLaMagia()
+        {
+            var laMagia = new LogicaPrincipal();
+            laMagia.BuscarPorProductosDescontinuados();
         }
     }
 }
