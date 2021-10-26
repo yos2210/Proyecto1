@@ -10,12 +10,10 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
     public partial class Order
     {
         [NotMapped]
-
-        public string OrderFullName
+        public string FechaDuracionPedido
         {
             get
             {
-
                 DateTime orderDate = Convert.ToDateTime(this.OrderDate);
                 DateTime shippedDate = Convert.ToDateTime(this.ShippedDate);
 
@@ -23,10 +21,8 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
 
                 int fechaDuracion = difDates.Days;
 
-
                 var resultado = $"{fechaDuracion}";
                 return resultado;
-
             }
             set { }
         }

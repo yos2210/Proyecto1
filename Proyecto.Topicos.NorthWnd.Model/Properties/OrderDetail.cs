@@ -12,56 +12,18 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         /*Quantity xUnit price   =Monto bruto 
           Quantity x UnitPrice x (Discount)= Monto de descuento(Double)--->montodescuento
           Discount x 100 =Porcentaje de descuento
-          Quantity x UnitPrice - montodescuento =Monto neto de la linea
-          
+          Quantity x UnitPrice - montodescuento =Monto neto de la linea 
          */
 
         [NotMapped]
-
-        public decimal OrderDetailUnitPrice
-        {
-            get
-            {
-
-
-                decimal unitPrice = this.UnitPrice;
-  
-
-                decimal resultado = unitPrice;
-                return resultado;
-
-            }
-            set { }
-        }
-
-        public short OrderDetailQuantity
-        {
-            get
-            {
-
-
-                short quantity = this.Quantity;
-
-
-                short resultado = quantity;
-                return resultado;
-
-            }
-            set { }
-        }
-
         public float OrderDetailDiscount
         {
             get
             {
-
-
                 float discount = this.Discount;
-
 
                 float resultado = discount;
                 return resultado;
-
             }
             set { }
         }
@@ -72,14 +34,13 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         {
             get
             {
+                decimal unitPrice = this.UnitPrice;
+                short quantity = this.Quantity;
 
-
-                decimal montoBruto = OrderDetailQuantity * OrderDetailUnitPrice;
-
+                decimal montoBruto = unitPrice * quantity;
 
                 decimal resultado = montoBruto;
                 return resultado;
-
             }
             set { }
         }
@@ -90,32 +51,24 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         {
             get
             {
-
-
-                decimal montoDescuento = OrderDetailQuantity * OrderDetailUnitPrice* Convert.ToDecimal(OrderDetailDiscount);
-
+                decimal montoDescuento = OrderDetailMontoBruto * Convert.ToDecimal(OrderDetailDiscount);
 
                 decimal resultado = montoDescuento;
                 return resultado;
-
             }
             set { }
         }
         /// <summary>
         /// Obtiene el Procentaje de Descuento
         /// </summary>
-        public float OrderDetailPorcentajeDeDescuento
+        public string OrderDetailPorcentajeDeDescuento
         {
             get
             {
+                var porcentajeDescuento = OrderDetailDiscount * 100;
 
-
-                float porcentajeDescuento = OrderDetailDiscount * 100;
-
-
-                float resultado = porcentajeDescuento;
+                var resultado = $"{porcentajeDescuento}%";
                 return resultado;
-
             }
             set { }
         }
@@ -127,14 +80,10 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         {
             get
             {
-
-
-                decimal total = OrderDetailQuantity * OrderDetailUnitPrice - OrderDetailMontoDeDescuento;
-
+                decimal total = OrderDetailMontoBruto - OrderDetailMontoDeDescuento;
 
                 decimal resultado = total;
                 return resultado;
-
             }
             set { }
         }

@@ -10,7 +10,6 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
     public partial class Product
     {
         [NotMapped]
-
         public string SupplierName
         {
             get
@@ -19,7 +18,6 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
                 
                 var resultado = $"{getSuplier}";
                 return resultado;
-
             }
             set { }
         }
@@ -32,7 +30,6 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
 
                 var resultado = $"{getCategory}";
                 return resultado;
-
             }
             set { }
         }
@@ -45,7 +42,6 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
 
                 var resultado = $"{unitsInStock}";
                 return resultado;
-
             }
             set { }
         }
