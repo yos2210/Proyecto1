@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Topicos.NorthWnd.Model.Models
 {
-    public partial class Product
+    private partial class Product
     {
         [NotMapped]
         public string SupplierName
         {
             get
             {
-                var getSuplier = this.Supplier.ContactName; 
-                
+                var getSuplier = this.Supplier.CompanyName;
+
                 var resultado = $"{getSuplier}";
                 return resultado;
             }
@@ -45,5 +45,5 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         //    }
         //    set { }
         //}
+
     }
-}

@@ -6,13 +6,13 @@ namespace Proyecto.Topicos.ConsoleApp
     {
         static void Main(string[] args)
         {
-            HagaLaMagia();
+            Colsultas();
         }
 
-        private static void HagaLaMagia()
+        private static void Colsultas()
         {
             var laMagia = new LogicaPrincipal();
-            laMagia.BuscarPorProductosDescontinuados();
+            laMagia.GenerarConsultas();
         }
     }
 }

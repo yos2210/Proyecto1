@@ -10,13 +10,22 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
     {
         private static Model.Models.NORTHWNDContext contexto = new Model.Models.NORTHWNDContext();
 
-        public IList<Model.Models.Product> BuscarPorProductosDescontinuados()
+        public IList<Model.Models.Product> BuscarProductosDescontinuados()
         {
             IList<Model.Models.Product> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
             {
-                //resultado = _contexto.Products.OrderByDescending(c => c.UnitPrice).ToList().Where(c => c.Discontinued.Equals(true)).ToList();
-                resultado = _contexto.Products.Where(c => c.Discontinued.Equals(true)).OrderBy(c => c.UnitPrice).ToList();
+                resultado = _contexto.Products.Where(p => p.Discontinued.Equals(true)).OrderBy(p => p.UnitPrice).ToList();
+            }
+            return resultado;
+        }
+
+        public IList<Model.Models.Product> BuscarProductosPorNombreAproxCategoría(String nombreCompania)
+        {
+            IList<Model.Models.Product> resultado;
+            using (var _contexto = new Model.Models.NORTHWNDContext())
+            {
+                resultado = _contexto.Products.Where(p => p.Supplier.CompanyName.Contains(nombreCompania)).OrderBy(p => p.SupplierId).ToList();
             }
             return resultado;
         }
