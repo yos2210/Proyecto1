@@ -7,43 +7,50 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Topicos.NorthWnd.Model.Models
 {
-    private partial class Product
+    public partial class Product
     {
         [NotMapped]
         public string SupplierName
         {
             get
             {
-                var getSuplier = this.Supplier.CompanyName;
-
-                var resultado = $"{getSuplier}";
-                return resultado;
+                var suplier = string.Empty;
+                if (this.Supplier.CompanyName != null)
+                {
+                    suplier = this.Supplier.CompanyName ;
+                }
+                return suplier;
             }
             set { }
         }
 
-        //public string CategoryrName
-        //{
-        //    get
-        //    {
-        //        var getCategory = this.Category.CategoryName;
+        public string CategoryrName
+        {
+            get
+            {
+                var category = string.Empty;
+                if (this.Category.CategoryName != null)
+                {
+                    category = this.Category.CategoryName;
+                }
+                return category;
+            }
+            set { }
+        }
 
-        //        var resultado = $"{getCategory}";
-        //        return resultado;
-        //    }
-        //    set { }
-        //}
-
-        //public string ProductStock
-        //{
-        //    get
-        //    {
-        //        var unitsInStock = this.UnitsInStock;
-
-        //        var resultado = $"{unitsInStock}";
-        //        return resultado;
-        //    }
-        //    set { }
-        //}
+        public short ProductStock
+        {
+            get
+            {
+                short unitsInStock = 0;
+                if (this.UnitsInStock != null)
+                {
+                    unitsInStock = (short)this.UnitsInStock;
+                }
+                return unitsInStock;
+            }
+            set { }
+        }
 
     }
+}

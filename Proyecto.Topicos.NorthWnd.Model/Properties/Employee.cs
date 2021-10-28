@@ -29,6 +29,42 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
             set { }
         }
 
+        public int EdadEmpleado
+        {
+            get
+            {
+            DateTime date = DateTime.Now;
+            DateTime birthDate = Convert.ToDateTime(this.BirthDate);
+
+            int age = date.Year - birthDate.Year;
+
+            if (date.Month < birthDate.Month || (date.Month == birthDate.Month && date.Day < birthDate.Day))
+            {
+                age--;
+            }
+            return age;
+            }
+            set { }
+        }
+
+        public int AnnosAntiguedad
+        {
+            get
+            {
+                DateTime date = DateTime.Now;
+                DateTime hire = Convert.ToDateTime(this.HireDate);
+
+                int hireYears = date.Year - hire.Year;
+
+                if (date.Month < hire.Month || (date.Month == hire.Month && date.Day < hire.Day))
+                {
+                    hireYears--;
+                }
+
+                return hireYears;
+            }
+            set { }
+        }
 
     }
 }

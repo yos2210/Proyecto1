@@ -38,11 +38,11 @@ namespace Proyecto.Topicos.ConsoleApp
         {
             var compania = "ma";
             var servicio = new NorthWnd.BL.Logica.AccesoBD.Product();
-            var resultado = servicio.BuscarProductosPorNombreAproxCategoría(compania);
-            ImprimirProductosPorNombreAproxCategoría(resultado);
+            var resultado = servicio.BuscarProductosPorNombreAproxProveedor(compania);
+            ImprimirProductosPorNombreAproxProveedor(resultado);
         }
 
-        private void ImprimirProductosPorNombreAproxCategoría(IList<NorthWnd.Model.Models.Product> resultado)
+        private void ImprimirProductosPorNombreAproxProveedor(IList<NorthWnd.Model.Models.Product> resultado)
         {
             if (resultado == null)
             {

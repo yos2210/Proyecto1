@@ -20,7 +20,7 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             return resultado;
         }
 
-        public IList<Model.Models.Product> BuscarProductosPorNombreAproxCategoría(String nombreCompania)
+        public IList<Model.Models.Product> BuscarProductosPorNombreAproxProveedor(String nombreCompania)
         {
             IList<Model.Models.Product> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
@@ -29,5 +29,16 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             }
             return resultado;
         }
+
+        public IList<Model.Models.Product> BuscarProductosPorNombreAproxCategoría(String nombreCategoria)
+        {
+            IList<Model.Models.Product> resultado;
+            using (var _contexto = new Model.Models.NORTHWNDContext())
+            {
+                resultado = _contexto.Products.Where(p => p.Category.CategoryName.Contains(nombreCategoria)).OrderBy(p => p.CategoryId).ToList();
+            }
+            return resultado;
+        }
+
     }
 }
