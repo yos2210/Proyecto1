@@ -9,48 +9,49 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
 {
     public partial class Product
     {
-        [NotMapped]
-        public string SupplierName
-        {
-            get
-            {
-                var suplier = string.Empty;
-                if (this.Supplier.CompanyName != null)
-                {
-                    suplier = this.Supplier.CompanyName ;
-                }
-                return suplier;
-            }
-            set { }
-        }
+        //[NotMapped]
+        //public string SupplierName
+        //{
+        //    get
+        //    {
+        //        var suplier = string.Empty;
+        //        if (this.Supplier.CompanyName != null)
+        //        {
+        //            suplier = this.Supplier.CompanyName ;
+        //        }
+        //        return suplier;
+        //    }
+        //    set { }
+        //}
 
-        public string CategoryrName
-        {
-            get
-            {
-                var category = string.Empty;
-                if (this.Category.CategoryName != null)
-                {
-                    category = this.Category.CategoryName;
-                }
-                return category;
-            }
-            set { }
-        }
+        //public string CategoryName
+        //{
+        //    get
+        //    {
+        //        var category = string.Empty;
+        //        if (this.Category.CategoryName != null)
+        //        {
+        //            category = this.Category.CategoryName;
+        //        }
+        //        return category;
+        //    }
+        //    set { }
+        //}
 
-        public short ProductStock
-        {
-            get
-            {
-                short unitsInStock = 0;
-                if (this.UnitsInStock != null)
-                {
-                    unitsInStock = (short)this.UnitsInStock;
-                }
-                return unitsInStock;
-            }
-            set { }
-        }
+        //public string ProductStock
+        //{
+        //    get
+        //    {
+        //        var unitsInStock = string.Empty;
+        //        if (this.UnitsInStock != null)
+        //        {
+        //            unitsInStock = this.UnitsInStock + " ";
+        //        }
+        //        return unitsInStock;
+
+        //    }
+        //    set { }
+        //}
 
     }
 }
