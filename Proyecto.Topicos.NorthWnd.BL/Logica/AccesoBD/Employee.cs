@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
 {
-    class Employee
+    public class Employee
     {
         private static Model.Models.NORTHWNDContext contexto = new Model.Models.NORTHWNDContext();
 
-        public IList<Model.Models.Employee> BuscarPorNombreAproxJefatura(String nombreJefatura)
+        public IList<Model.Models.Employee> BuscarEmpleadoPorNombreAproxJefatura(String nombreJefatura)
         {
             IList<Model.Models.Employee> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
@@ -20,7 +20,7 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             return resultado;
         }
 
-        public IList<Model.Models.Employee> BuscarquedaPorEdad(String nombreJefatura)
+        public IList<Model.Models.Employee> BuscarEmpleadoPorEdad()
         {
             IList<Model.Models.Employee> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
@@ -30,7 +30,7 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             return resultado;
         }
 
-        public IList<Model.Models.Employee> BuscarquedaPorAnnosAntiguedad(String nombreJefatura)
+        public IList<Model.Models.Employee> BuscarEmpleadosPorAnnosAntiguedad()
         {
             IList<Model.Models.Employee> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
