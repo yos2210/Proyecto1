@@ -12,7 +12,7 @@ namespace Proyecto.Topicos.ConsoleApp
         private static void Colsultas()
         {
             var laMagia = new LogicaPrincipal();
-            //laMagia.GenerarConsultas();
+            laMagia.GenerarConsultas();
         }
     }
 }
