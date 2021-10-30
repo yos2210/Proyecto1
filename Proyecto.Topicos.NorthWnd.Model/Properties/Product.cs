@@ -38,20 +38,19 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         //    set { }
         //}
 
-        //public string ProductStock
+        //public short ProductStock
         //{
         //    get
         //    {
-        //        var unitsInStock = string.Empty;
+        //        short unitsInStock = 0;
         //        if (this.UnitsInStock != null)
         //        {
-        //            unitsInStock = this.UnitsInStock + " ";
+        //            unitsInStock = (short)this.UnitsInStock;
         //        }
         //        return unitsInStock;
-
         //    }
         //    set { }
         //}
-
+    
     }
 }

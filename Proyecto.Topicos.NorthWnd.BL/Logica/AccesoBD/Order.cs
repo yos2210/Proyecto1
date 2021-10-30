@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
 {
-    class Order
+   public class Order
     {
         public IList<Model.Models.Order> BuscarNombreEmpledoEnOrder(String nombreEmpledo)
         {

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Proyecto.Topicos.NorthWnd.Model\Proyecto.Topicos.NorthWnd.Model.csproj" />
   </ItemGroup>
 
