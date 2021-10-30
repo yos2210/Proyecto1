@@ -9,64 +9,64 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
 {
     public partial class Employee
     {
-        [NotMapped]
-        public string EmployeeFullName
-        {
-            get
-            {
-                var titleOfCortesy = string.Empty;
-                if (this.TitleOfCourtesy != null)
-                {
-                    titleOfCortesy = this.TitleOfCourtesy + " ";
-                }
+    //    [NotMapped]
+    //    public string EmployeeFullName
+    //    {
+    //        get
+    //        {
+    //            var titleOfCortesy = string.Empty;
+    //            if (this.TitleOfCourtesy != null)
+    //            {
+    //                titleOfCortesy = this.TitleOfCourtesy + " ";
+    //            }
 
-                var firstName = this.FirstName + " ";
-                var lastName = this.LastName + " ";
+    //            var firstName = this.FirstName + " ";
+    //            var lastName = this.LastName + " ";
 
-                var resultado = $"{titleOfCortesy}{firstName}{lastName}";
-                return resultado;
-            }
-            set { }
-        }
+    //            var resultado = $"{titleOfCortesy}{firstName}{lastName}";
+    //            return resultado;
+    //        }
+    //        set { }
+    //    }
 
-        [NotMapped]
-        public int EdadEmpleado
-        {
-            get
-            {
-            DateTime date = DateTime.Now;
-            DateTime birthDate = Convert.ToDateTime(this.BirthDate);
+    //    [NotMapped]
+    //    public int EdadEmpleado
+    //    {
+    //        get
+    //        {
+    //        DateTime date = DateTime.Now;
+    //        DateTime birthDate = Convert.ToDateTime(this.BirthDate);
 
-            int age = date.Year - birthDate.Year;
+    //        int age = date.Year - birthDate.Year;
 
-            if (date.Month < birthDate.Month || (date.Month == birthDate.Month && date.Day < birthDate.Day))
-            {
-                age--;
-            }
-            return age;
-            }
-            set { }
-        }
+    //        if (date.Month < birthDate.Month || (date.Month == birthDate.Month && date.Day < birthDate.Day))
+    //        {
+    //            age--;
+    //        }
+    //        return age;
+    //        }
+    //        set { }
+    //    }
 
-        [NotMapped]
-        public int AnnosAntiguedad
-        {
-            get
-            {
-                DateTime date = DateTime.Now;
-                DateTime hire = Convert.ToDateTime(this.HireDate);
+    //    [NotMapped]
+    //    public int AnnosAntiguedad
+    //    {
+    //        get
+    //        {
+    //            DateTime date = DateTime.Now;
+    //            DateTime hire = Convert.ToDateTime(this.HireDate);
 
-                int hireYears = date.Year - hire.Year;
+    //            int hireYears = date.Year - hire.Year;
 
-                if (date.Month < hire.Month || (date.Month == hire.Month && date.Day < hire.Day))
-                {
-                    hireYears--;
-                }
+    //            if (date.Month < hire.Month || (date.Month == hire.Month && date.Day < hire.Day))
+    //            {
+    //                hireYears--;
+    //            }
 
-                return hireYears;
-            }
-            set { }
-        }
+    //            return hireYears;
+    //        }
+    //        set { }
+    //    }
 
     }
 }

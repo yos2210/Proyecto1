@@ -16,6 +16,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
             : base(options)
         {
         }
+
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
@@ -25,16 +26,14 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<Territory> Territories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-               optionsBuilder.UseSqlServer("Server=(local)\\;Database=NORTHWND;Trusted_Connection=True;");
-               //optionsBuilder.UseSqlServer("Server=EXTREME-PC\\DIEGO;Database=NORTHWND;Trusted_Connection=True;");
-
-
+                optionsBuilder.UseSqlServer("Server=(local)\\;Database=NORTHWND;Trusted_Connection=True;");
             }
         }
 
@@ -161,6 +160,12 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
                     .HasForeignKey(d => d.EmployeeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_EmployeeTerritories_Employees");
+
+                entity.HasOne(d => d.Territory)
+                    .WithMany(p => p.EmployeeTerritories)
+                    .HasForeignKey(d => d.TerritoryId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_EmployeeTerritories_Territories");
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -349,6 +354,23 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
                 entity.Property(e => e.PostalCode).HasMaxLength(10);
 
                 entity.Property(e => e.Region).HasMaxLength(15);
+            });
+
+            modelBuilder.Entity<Territory>(entity =>
+            {
+                entity.HasKey(e => e.TerritoryId)
+                    .IsClustered(false);
+
+                entity.Property(e => e.TerritoryId)
+                    .HasMaxLength(20)
+                    .HasColumnName("TerritoryID");
+
+                entity.Property(e => e.RegionId).HasColumnName("RegionID");
+
+                entity.Property(e => e.TerritoryDescription)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
             });
 
             OnModelCreatingPartial(modelBuilder);
