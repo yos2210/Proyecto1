@@ -10,14 +10,16 @@ namespace Proyecto.Topicos.ConsoleApp
     {
         public void GenerarConsultas()
         {
-            BuscarProductosDescontinuados();
-            BuscarProductosPorNombreAproxProveedor();
-            BuscarProductosPorNombreAproxCategoría();
-            BuscarEmpleadoPorNombreAproxJefatura();
-            BuscarEmpleadoPorEdad();
-            BuscarEmpleadosPorAnnosAntiguedad();
-            BuscarNombreEmpledoEnOrder();
-            BuscarNombreClienteEnOrder();
+            //BuscarProductosDescontinuados();
+            //BuscarProductosPorNombreAproxProveedor();
+            //BuscarProductosPorNombreAproxCategoría();
+            //BuscarEmpleadoPorNombreAproxJefatura();
+            //BuscarEmpleadoPorEdad();
+            //BuscarEmpleadosPorAnnosAntiguedad();
+            //BuscarNombreEmpledoEnOrder();
+            //BuscarNombreClienteEnOrder();
+            //BuscarPorAproximadoProducto();
+            BuscarFacturasEntreMonto();
         }
 
         /// <summary>
@@ -245,7 +247,63 @@ namespace Proyecto.Topicos.ConsoleApp
             System.Console.WriteLine("\n");
         }
 
+        /// <summary>
+        /// Buscar por nombre aproximado de producto "Consulta #10"
+        /// </summary>
+        private void BuscarPorAproximadoProducto()
+        {
+            var producto = "chef";
+            var servicio = new NorthWnd.BL.Logica.AccesoBD.Product();
+            var resultado = servicio.BuscarPorAproximadoProducto(producto);
+            ImprimirPorAproximadoProducto(resultado);
+        }
 
+
+        private void ImprimirPorAproximadoProducto(IList<NorthWnd.Model.Models.Product> resultado)
+        {
+            System.Console.WriteLine("\nConsulta 10:\n");
+            if (resultado == null)
+            {
+                System.Console.WriteLine("Lista sin elementos");
+                return;
+            }
+            foreach (var product in resultado)
+            {
+                foreach (var orderD in product.OrderDetails)
+                {
+                    System.Console.WriteLine($"Orden: {orderD.OrderId} - Producto: {product.ProductName} - CantidadProductos {orderD.Quantity}");
+
+                }
+            }
+            System.Console.WriteLine("\n");
+        }
+
+        private void BuscarFacturasEntreMonto()
+        {
+            var servicio = new NorthWnd.BL.Logica.AccesoBD.Order();
+            var resultado = servicio.BuscarFacturasEntreMonto();
+            ImprimirFacturasEntreMonto(resultado);
+        }
+
+
+        private void ImprimirFacturasEntreMonto(IList<NorthWnd.Model.Models.Order> resultado)
+        {
+            System.Console.WriteLine("\nConsulta 11:\n");
+            if (resultado == null)
+            {
+                System.Console.WriteLine("Lista sin elementos");
+                return;
+            }
+            foreach (var order in resultado)
+            {
+                foreach (var orderD in order.OrderDetails)
+                {
+                    System.Console.WriteLine($"Orden: {orderD.OrderId} - SubTotal: {orderD.OrderDetailMontoBruto.ToString("N3")} - Descuesto: {orderD.OrderDetailMontoDeDescuento.ToString("N3")} - Total: {orderD.OrderDetailTotal.ToString("N3")}");
+
+                }
+            }
+            System.Console.WriteLine("\n");
+        }
 
 
     }

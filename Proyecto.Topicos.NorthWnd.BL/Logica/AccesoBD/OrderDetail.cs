@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
 {
-    public class OrderDatail
+    public class OrderDetail
     {
     }
 }
