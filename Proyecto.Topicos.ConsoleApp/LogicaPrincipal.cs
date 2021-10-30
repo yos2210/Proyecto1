@@ -10,14 +10,14 @@ namespace Proyecto.Topicos.ConsoleApp
     {
         public void GenerarConsultas()
         {
-            //BuscarProductosDescontinuados();
+            BuscarProductosDescontinuados();
             BuscarProductosPorNombreAproxProveedor();
-            //BuscarProductosPorNombreAproxCategoría();
-            //BuscarEmpleadoPorNombreAproxJefatura();
-            //BuscarEmpleadoPorEdad();
-            //BuscarEmpleadosPorAnnosAntiguedad();
-            //BuscarNombreEmpledoEnOrder();
-            //BuscarNombreClienteEnOrder();
+            BuscarProductosPorNombreAproxCategoría();
+            BuscarEmpleadoPorNombreAproxJefatura();
+            BuscarEmpleadoPorEdad();
+            BuscarEmpleadosPorAnnosAntiguedad();
+            BuscarNombreEmpledoEnOrder();
+            BuscarNombreClienteEnOrder();
         }
 
         /// <summary>
@@ -43,6 +43,7 @@ namespace Proyecto.Topicos.ConsoleApp
             {
                 System.Console.WriteLine($"Producto: {product.ProductName} - Descontinuado: {product.Discontinued} - Precio: {product.UnitPrice}");
             }
+            System.Console.WriteLine("\n");
         }
 
         /// <summary>
@@ -72,6 +73,7 @@ namespace Proyecto.Topicos.ConsoleApp
                     System.Console.WriteLine($"Producto: {product.ProductName} - Provedor: {supplier.CompanyName}");
                 }
             }
+            System.Console.WriteLine("\n");
         }
 
         /// <summary>
@@ -97,6 +99,7 @@ namespace Proyecto.Topicos.ConsoleApp
             {
                 System.Console.WriteLine($"Producto: {product.ProductName} - Categoria: {product.CategoryId}");
             }
+            System.Console.WriteLine("\n");
         }
 
 
@@ -125,6 +128,7 @@ namespace Proyecto.Topicos.ConsoleApp
             {
                 System.Console.WriteLine($"Empleado: {employee.EmployeeFullName} - Titulo: {employee.Title}");
             }
+            System.Console.WriteLine("\n");
         }
 
 
@@ -151,6 +155,7 @@ namespace Proyecto.Topicos.ConsoleApp
             {
                 System.Console.WriteLine($"Empleado: {employee.EmployeeFullName} - Edad: {employee.EdadEmpleado}");
             }
+            System.Console.WriteLine("\n");
         }
 
         /// <summary>
@@ -176,6 +181,7 @@ namespace Proyecto.Topicos.ConsoleApp
             {
                 System.Console.WriteLine($"Empleado: {employee.EmployeeFullName} - Años de Antiguedad: {employee.AnnosAntiguedad}");
             }
+            System.Console.WriteLine("\n");
         }
 
         /// <summary>
@@ -184,13 +190,13 @@ namespace Proyecto.Topicos.ConsoleApp
         private void BuscarNombreEmpledoEnOrder()
         {
             var jefatura = "la";
-            var servicio = new NorthWnd.BL.Logica.AccesoBD.Order();
+            var servicio = new NorthWnd.BL.Logica.AccesoBD.Employee();
             var resultado = servicio.BuscarNombreEmpledoEnOrder(jefatura);
             ImprimirEmpleadoEnOrder(resultado);
         }
 
 
-        private void ImprimirEmpleadoEnOrder(IList<NorthWnd.Model.Models.Order> resultado)
+        private void ImprimirEmpleadoEnOrder(IList<NorthWnd.Model.Models.Employee> resultado)
         {
             System.Console.WriteLine("\nConsulta 8:\n");
             if (resultado == null)
@@ -198,10 +204,15 @@ namespace Proyecto.Topicos.ConsoleApp
                 System.Console.WriteLine("Lista sin elementos");
                 return;
             }
-            foreach (var order in resultado)
+            foreach (var employee in resultado)
             {
-                System.Console.WriteLine($"Orden: {order.OrderId} - Empleado: {order.EmployeeId}");
+                foreach (var order in employee.Orders)
+                {
+                    System.Console.WriteLine($"Orden: {order.OrderId} - Empleado: {employee.EmployeeFullName}");
+                }
+                
             }
+            System.Console.WriteLine("\n");
         }
 
         /// <summary>
@@ -210,13 +221,13 @@ namespace Proyecto.Topicos.ConsoleApp
         private void BuscarNombreClienteEnOrder()
         {
             var jefatura = "ers";
-            var servicio = new NorthWnd.BL.Logica.AccesoBD.Order();
+            var servicio = new NorthWnd.BL.Logica.AccesoBD.Customer();
             var resultado = servicio.BuscarNombreClienteEnOrder(jefatura);
             ImprimirClienteEnOrder(resultado);
         }
 
 
-        private void ImprimirClienteEnOrder(IList<NorthWnd.Model.Models.Order> resultado)
+        private void ImprimirClienteEnOrder(IList<NorthWnd.Model.Models.Customer> resultado)
         {
             System.Console.WriteLine("\nConsulta 9:\n");
             if (resultado == null)
@@ -224,10 +235,14 @@ namespace Proyecto.Topicos.ConsoleApp
                 System.Console.WriteLine("Lista sin elementos");
                 return;
             }
-            foreach (var order in resultado)
+            foreach (var customer in resultado)
             {
-                System.Console.WriteLine($"Orden: {order.OrderId} - Cliente: {order.CustomerId}");
+                foreach (var order in customer.Orders)
+                {
+                    System.Console.WriteLine($"Orden: {order.OrderId} - Cliente: {customer.ContactName}");
+                }
             }
+            System.Console.WriteLine("\n");
         }
 
 
