@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
 {
@@ -16,16 +17,6 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             using (var _contexto = new Model.Models.NORTHWNDContext())
             {
                 resultado = _contexto.Products.Where(p => p.Discontinued.Equals(true)).OrderBy(p => p.UnitPrice).ToList();
-            }
-            return resultado;
-        }
-
-        public IList<Model.Models.Product> BuscarProductosPorNombreAproxProveedor(String nombreCompania)
-        {
-            IList<Model.Models.Product> resultado;
-            using (var _contexto = new Model.Models.NORTHWNDContext())
-            {
-                resultado = _contexto.Products.Where(p => p.Supplier.CompanyName.Contains(nombreCompania)).OrderBy(p => p.SupplierId).ToList();
             }
             return resultado;
         }

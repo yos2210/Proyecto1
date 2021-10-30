@@ -10,14 +10,14 @@ namespace Proyecto.Topicos.ConsoleApp
     {
         public void GenerarConsultas()
         {
-            BuscarProductosDescontinuados();
+            //BuscarProductosDescontinuados();
             BuscarProductosPorNombreAproxProveedor();
-            BuscarProductosPorNombreAproxCategoría();
-            BuscarEmpleadoPorNombreAproxJefatura();
-            BuscarEmpleadoPorEdad();
-            BuscarEmpleadosPorAnnosAntiguedad();
-            BuscarNombreEmpledoEnOrder();
-            BuscarNombreClienteEnOrder();
+            //BuscarProductosPorNombreAproxCategoría();
+            //BuscarEmpleadoPorNombreAproxJefatura();
+            //BuscarEmpleadoPorEdad();
+            //BuscarEmpleadosPorAnnosAntiguedad();
+            //BuscarNombreEmpledoEnOrder();
+            //BuscarNombreClienteEnOrder();
         }
 
         /// <summary>
@@ -52,12 +52,12 @@ namespace Proyecto.Topicos.ConsoleApp
         private void BuscarProductosPorNombreAproxProveedor()
         {
             var compania = "ma";
-            var servicio = new NorthWnd.BL.Logica.AccesoBD.Product();
+            var servicio = new NorthWnd.BL.Logica.AccesoBD.Supplier();
             var resultado = servicio.BuscarProductosPorNombreAproxProveedor(compania);
             ImprimirProductosPorNombreAproxProveedor(resultado);
         }
 
-        private void ImprimirProductosPorNombreAproxProveedor(IList<NorthWnd.Model.Models.Product> resultado)
+        private void ImprimirProductosPorNombreAproxProveedor(IList<NorthWnd.Model.Models.Supplier> resultado)
         {
             System.Console.WriteLine("\nConsulta 2:\n");
             if (resultado == null)
@@ -65,9 +65,12 @@ namespace Proyecto.Topicos.ConsoleApp
                 System.Console.WriteLine("Lista sin elementos");
                 return;
             }
-            foreach (var product in resultado)
+            foreach (var supplier in resultado)
             {
-                System.Console.WriteLine($"Producto: {product.ProductName} - Provedor: {product.SupplierId}");
+                foreach (var product in supplier.Products)
+                {
+                    System.Console.WriteLine($"Producto: {product.ProductName} - Provedor: {supplier.CompanyName}");
+                }
             }
         }
 
