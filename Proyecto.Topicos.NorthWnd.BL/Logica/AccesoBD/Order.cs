@@ -13,7 +13,7 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             IList<Model.Models.Order> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
             {
-                resultado = _contexto.Orders.Where(o => o.Employee.EmployeeFullName.Contains(nombreEmpledo)).OrderBy(p => p.EmployeeId).ToList();
+                resultado = _contexto.Orders.Where(o => o.Employee.FirstName.Contains(nombreEmpledo)).Where(o => o.Employee.LastName.Contains(nombreEmpledo)).OrderBy(p => p.EmployeeId).ToList();
             }
             return resultado;
         }

@@ -25,7 +25,7 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             IList<Model.Models.Employee> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
             {
-                resultado = _contexto.Employees.OrderBy(e => e.EdadEmpleado).ToList();
+                resultado = _contexto.Employees.OrderByDescending(e => e.BirthDate).ToList();
             }
             return resultado;
         }
@@ -35,7 +35,7 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             IList<Model.Models.Employee> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
             {
-                resultado = _contexto.Employees.OrderBy(e => e.AnnosAntiguedad).ToList();
+                resultado = _contexto.Employees.OrderByDescending(e => e.HireDate).ToList();
             }
             return resultado;
         }

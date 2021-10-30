@@ -30,6 +30,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         /// <summary>
         /// Obtiene el Monto Bruto
         /// </summary>
+        [NotMapped]
         public decimal OrderDetailMontoBruto
         {
             get
@@ -47,6 +48,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         /// <summary>
         /// Obtiene el Monto de descuento
         /// </summary>
+        [NotMapped]
         public decimal OrderDetailMontoDeDescuento
         {
             get
@@ -61,6 +63,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         /// <summary>
         /// Obtiene el Procentaje de Descuento
         /// </summary>
+        [NotMapped]
         public string OrderDetailPorcentajeDeDescuento
         {
             get
@@ -76,6 +79,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
         /// <summary>
         /// Saca el Monto Neto de la Linea
         /// </summary>
+        [NotMapped]
         public decimal OrderDetailTotal
         {
             get

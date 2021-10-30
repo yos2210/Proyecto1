@@ -29,6 +29,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
             set { }
         }
 
+        [NotMapped]
         public int EdadEmpleado
         {
             get
@@ -47,6 +48,7 @@ namespace Proyecto.Topicos.NorthWnd.Model.Models
             set { }
         }
 
+        [NotMapped]
         public int AnnosAntiguedad
         {
             get

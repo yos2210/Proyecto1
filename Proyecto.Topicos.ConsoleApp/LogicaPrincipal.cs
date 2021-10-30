@@ -180,7 +180,7 @@ namespace Proyecto.Topicos.ConsoleApp
         /// </summary>
         private void BuscarNombreEmpledoEnOrder()
         {
-            var jefatura = "s";
+            var jefatura = "la";
             var servicio = new NorthWnd.BL.Logica.AccesoBD.Order();
             var resultado = servicio.BuscarNombreEmpledoEnOrder(jefatura);
             ImprimirEmpleadoEnOrder(resultado);
@@ -197,7 +197,7 @@ namespace Proyecto.Topicos.ConsoleApp
             }
             foreach (var order in resultado)
             {
-                System.Console.WriteLine($"Orden: {order.OrderId} - Empleado: {order.Employee.EmployeeFullName}");
+                System.Console.WriteLine($"Orden: {order.OrderId} - Empleado: {order.EmployeeId}");
             }
         }
 
