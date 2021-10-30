@@ -16,10 +16,12 @@ namespace Proyecto.Topicos.ConsoleApp
             BuscarEmpleadoPorNombreAproxJefatura();
             BuscarEmpleadoPorEdad();
             BuscarEmpleadosPorAnnosAntiguedad();
+            BuscarTerritorioEmpledo();
             BuscarNombreEmpledoEnOrder();
             BuscarNombreClienteEnOrder();
             BuscarPorAproximadoProducto();
             BuscarFacturasEntreMonto();
+           
         }
 
         /// <summary>
@@ -182,6 +184,37 @@ namespace Proyecto.Topicos.ConsoleApp
             foreach (var employee in resultado)
             {
                 System.Console.WriteLine($"Empleado: {employee.EmployeeFullName} - Años de Antiguedad: {employee.AnnosAntiguedad}");
+            }
+            System.Console.WriteLine("\n");
+        }
+
+        /// <summary>
+        /// Buscar Employee descripcion de territorio "Consulta #7"
+        /// </summary>
+        private void BuscarTerritorioEmpledo()
+        {
+            var territori = "san";
+            var servicio = new NorthWnd.BL.Logica.AccesoBD.Employee();
+            var resultado = servicio.BuscarTerritorioEmpledo(territori);
+            ImprimirTerritorioEmpledo(resultado);
+        }
+
+
+        private void ImprimirTerritorioEmpledo(IList<NorthWnd.Model.Models.Employee> resultado)
+        {
+            System.Console.WriteLine("\nConsulta 7:\n");
+            if (resultado == null)
+            {
+                System.Console.WriteLine("Lista sin elementos");
+                return;
+            }
+            foreach (var employee in resultado)
+            {
+                foreach (var territori in employee.EmployeeTerritories)
+                {
+                    System.Console.WriteLine($"Empleado: {employee.EmployeeFullName} - Territori: {territori.TerritoryId}");
+                }
+
             }
             System.Console.WriteLine("\n");
         }

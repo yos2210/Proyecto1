@@ -11,12 +11,12 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
     {
         public IList<Model.Models.Order> BuscarFacturasEntreMonto()
         {
-            //IList<Model.Models.Order> resultado;
-            //using (var _contexto = new Model.Models.NORTHWNDContext())
-            //{
-            //    resultado = _contexto.Orders.Include(od => od.OrderDetails.Where(o => o.UnitPrice >= 1 && o.UnitPrice <= 2)).OrderBy(o => o.OrderId).ToList();
-            //}
-            //return resultado;
+            IList<Model.Models.Order> resultado;
+            using (var _contexto = new Model.Models.NORTHWNDContext())
+            {
+                resultado = _contexto.Orders.Include(od => od.OrderDetails.Where(o => o.UnitPrice >= 1 && o.UnitPrice <= 2)).OrderBy(o => o.OrderId).ToList();
+            }
+            return resultado;
         }
     }
 }

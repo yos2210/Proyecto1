@@ -51,5 +51,14 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             }
             return resultado;
         }
+        public IList<Model.Models.Employee> BuscarTerritorioEmpledo(String descTerritorio)
+        {
+            IList<Model.Models.Employee> resultado;
+            using (var _contexto = new Model.Models.NORTHWNDContext())
+            {
+                resultado = _contexto.Employees.Include(od => od.EmployeeTerritories.Where(o => o.Territory.TerritoryDescription.Contains(descTerritorio)).OrderBy(e => e.EmployeeId)).ToList();
+            }
+            return resultado;
+        }
     }
 }
