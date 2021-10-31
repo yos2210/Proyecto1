@@ -21,12 +21,12 @@ namespace Proyecto.Topicos.NorthWnd.BL.Logica.AccesoBD
             return resultado;
         }
 
-        public IList<Model.Models.Product> BuscarProductosPorNombreAproxCategoría(String nombreCategoria)
+        public IList<Model.Models.Category> BuscarProductosPorNombreAproxCategoría(String nombreCategoria)
         {
-            IList<Model.Models.Product> resultado;
+            IList<Model.Models.Category> resultado;
             using (var _contexto = new Model.Models.NORTHWNDContext())
             {
-                resultado = _contexto.Products.Where(p => p.Category.CategoryName.Contains(nombreCategoria)).OrderBy(p => p.CategoryId).ToList();
+                resultado = _contexto.Categories.Include(p => p.Products).Where(p => p.CategoryName.Contains(nombreCategoria)).OrderBy(p => p.CategoryId).ToList();
             }
             return resultado;
         }

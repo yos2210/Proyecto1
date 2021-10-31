@@ -91,7 +91,7 @@ namespace Proyecto.Topicos.ConsoleApp
             ImprimirProductosPorNombreAproxCategoria(resultado);
         }
 
-        private void ImprimirProductosPorNombreAproxCategoria(IList<NorthWnd.Model.Models.Product> resultado)
+        private void ImprimirProductosPorNombreAproxCategoria(IList<NorthWnd.Model.Models.Category> resultado)
         {
             System.Console.WriteLine("\nConsulta 3:\n");
             if (resultado == null)
@@ -99,9 +99,13 @@ namespace Proyecto.Topicos.ConsoleApp
                 System.Console.WriteLine("Lista sin elementos");
                 return;
             }
-            foreach (var product in resultado)
+            foreach (var category in resultado)
             {
-                System.Console.WriteLine($"Producto: {product.ProductName} - Categoria: {product.CategoryId}");
+                foreach (var product in category.Products)
+                {
+                    System.Console.WriteLine($"Producto: {product.ProductName} - Categoria: {category.CategoryName}");
+
+                }
             }
             System.Console.WriteLine("\n");
         }
@@ -198,8 +202,6 @@ namespace Proyecto.Topicos.ConsoleApp
             var resultado = servicio.BuscarTerritorioEmpledo(territori);
             ImprimirTerritorioEmpledo(resultado);
         }
-
-
         private void ImprimirTerritorioEmpledo(IList<NorthWnd.Model.Models.Employee> resultado)
         {
             System.Console.WriteLine("\nConsulta 7:\n");
@@ -214,7 +216,6 @@ namespace Proyecto.Topicos.ConsoleApp
                 {
                     System.Console.WriteLine($"Empleado: {employee.EmployeeFullName} - Territori: {territori.TerritoryId}");
                 }
-
             }
             System.Console.WriteLine("\n");
         }
